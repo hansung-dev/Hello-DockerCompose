@@ -1,0 +1,61 @@
+version: '3.2'
+
+services:
+  elasticsearch:
+    image: elasticsearch:6.7.1
+    hostname: elasticsearch
+    volumes:
+      - type: bind
+        source: "${PWD}/elasticsearch/config/elasticsearch.yml"
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        read_only: true
+      - "${PWD}/elasticsearch/data:/usr/share/elasticsearch/data"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: changeme
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks
+      # see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      discovery.type: single-node
+    networks:
+      - mybridge
+  
+  kibana:
+    image: kibana:6.7.1
+    hostname: kibana
+    volumes:
+      - type: bind
+        source: "${PWD}/kibana/config/kibana.yml"
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
+    ports:
+      - "5601:5601"
+    networks:
+      - mybridge
+    depends_on:
+      - elasticsearch
+
+  mysql-01:
+    container_name: mysql-01
+    hostname: mysql-01
+    image: mysql:8.0.23
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3306:3306'
+    volumes:
+      - "${PWD}/mysql-01/data:/var/lib/mysql"
+      - "${PWD}/mysql-01/log:/var/log/mysql"
+      - "${PWD}/mysql-01/conf/my.cnf:/etc/mysql/conf.d/my.cnf"
+      - "${PWD}/filebeat/conf/filebeat-6.7.1-amd64.deb:/tmp/"
+      - "${PWD}/filebeat/conf/filebeat.cnf:/tmp/"
+      - "${PWD}/filebeat/conf/modules.d/mysql.yml:/tpm/"
+    networks:
+      - mybridge
+
+networks:
+  mybridge:
+    external: true
