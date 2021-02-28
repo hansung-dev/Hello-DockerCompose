@@ -6,8 +6,8 @@ services:
     hostname: elasticsearch
     volumes:
       - type: bind
-        source: "${PWD}/elasticsearch/config/elasticsearch.yml"
-        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        source: "${PWD}/elasticsearch/conf/elasticsearch.yml"
+        target: /usr/share/elasticsearch/conf/elasticsearch.yml
         read_only: true
       - "${PWD}/elasticsearch/data:/usr/share/elasticsearch/data"
     ports:
@@ -27,8 +27,8 @@ services:
     hostname: kibana
     volumes:
       - type: bind
-        source: "${PWD}/kibana/config/kibana.yml"
-        target: /usr/share/kibana/config/kibana.yml
+        source: "${PWD}/kibana/conf/kibana.yml"
+        target: /usr/share/kibana/conf/kibana.yml
         read_only: true
     ports:
       - "5601:5601"
