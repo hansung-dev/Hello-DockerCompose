@@ -1,3 +1,12 @@
-## 폴더 무시
+## mysql
 mysql/mysql-8.0.23/mysql-01/data/
 mysql/mysql-8.0.23/mysql-01/log/
+
+## elastic-stack
+elastic-stack/elastic-stack-6.7.1/elasticsearch/data
+elastic-stack/elastic-stack-6.7.1/mysql-01/data
+elastic-stack/elastic-stack-6.7.1/mysql-01/log
+
+## airflow
+airflow/airflow-2.0.1/logs
+airflow/airflow-2.0.1/plugins
