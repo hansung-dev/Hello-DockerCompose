@@ -10,3 +10,9 @@ elastic-stack/elastic-stack-6.7.1/mysql-01/log
 ## airflow
 airflow/airflow-2.0.1/logs
 airflow/airflow-2.0.1/plugins
+
+## airflow-mysql
+airflow/airflow-mysql/airflow/logs
+airflow/airflow-mysql/airflow/plugins
+airflow/airflow-mysql/mysql-01/data
+airflow/airflow-mysql/mysql-01/log

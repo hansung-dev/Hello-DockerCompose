@@ -1,0 +1,19 @@
+airflow-mysql
+├── dags
+│   ├── __pycache__
+│   │   ├── example_mysql.cpython-36.pyc
+│   │   └── hello_world.cpython-36.pyc
+│   ├── example_mysql.py
+│   ├── hello_world.py
+│   └── sql
+│       └── example_mysql.sql
+├── docker-compose.yaml
+├── logs
+├── mysql-01
+│   ├── conf
+│   │   └── my.cnf
+│   ├── data
+│   └── log
+└── plugins
+
+63 directories, 296 files
