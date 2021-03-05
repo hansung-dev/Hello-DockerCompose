@@ -1,0 +1,63 @@
+version: "3"
+
+services:
+  mysql-01:
+    image:  mysql:8.0.23
+    container_name: mysql-01
+    hostname: mysql-01
+    ports:
+      - "3306:3306"
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - "${PWD}/mysql-01/data:/var/lib/mysql"
+      - "${PWD}/mysql-01/log:/var/log/mysql"
+      - "${PWD}/mysql-01/conf/my.cnf:/etc/mysql/conf.d/my.cnf"
+    networks:
+      - mybridge
+
+  mysql-02:
+    image: mysql:8.0.23
+    container_name: mysql-02
+    hostname: mysql-02
+    ports:
+      - "13306:3306"
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - "${PWD}/mysql-02/data:/var/lib/mysql"
+      - "${PWD}/mysql-02/log:/var/log/mysql"
+      - "${PWD}/mysql-02/conf/my.cnf:/etc/mysql/conf.d/my.cnf"
+    networks:
+      - mybridge
+
+  mysql-03:
+    image: mysql:8.0.23
+    container_name: mysql-03
+    hostname: mysql-03
+    ports:
+      - "23306:3306"
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - "${PWD}/mysql-03/data:/var/lib/mysql"
+      - "${PWD}/mysql-03/log:/var/log/mysql"
+      - "${PWD}/mysql-03/conf/my.cnf:/etc/mysql/conf.d/my.cnf"
+    networks:
+      - mybridge
+
+  orchestrator:
+    image: openarkcode/orchestrator:latest
+    container_name: orchestrator
+    hostname: orchestrator
+    ports:
+      - "3000:3000"
+    networks:
+      - mybridge
+
+networks:
+  mybridge:
+    external: true

@@ -1,6 +1,17 @@
+tmp/
+
 ## mysql
 mysql/mysql-8.0.23/mysql-01/data/
 mysql/mysql-8.0.23/mysql-01/log/
+
+## mysql-orchestrator
+mysql/mysql-orchestrator/mysql-01/data
+mysql/mysql-orchestrator/mysql-02/data
+mysql/mysql-orchestrator/mysql-03/data
+
+mysql/mysql-orchestrator/mysql-01/log
+mysql/mysql-orchestrator/mysql-02/log
+mysql/mysql-orchestrator/mysql-03/log
 
 ## elastic-stack
 elastic-stack/elastic-stack-6.7.1/elasticsearch/data
