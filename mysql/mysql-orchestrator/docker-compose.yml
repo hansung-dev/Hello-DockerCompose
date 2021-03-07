@@ -55,6 +55,8 @@ services:
     hostname: orchestrator
     ports:
       - "3000:3000"
+    volumes:
+      - "${PWD}/orchestrator/conf/orchestrator.conf.json:/etc/orchestrator.conf.json"
     networks:
       - mybridge
 
