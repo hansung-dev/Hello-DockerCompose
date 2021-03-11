@@ -1,0 +1,29 @@
+mysql-orchestrator-proxysql
+├── docker-compose.yml
+├── post_sql.sh
+├── mysql-01
+│   ├── conf
+│   │   └── my.cnf
+│   ├── data
+│   └── log
+├── mysql-02
+│   ├── conf
+│   │   └── my.cnf
+│   ├── data
+│   └── log
+├── mysql-03
+│   ├── conf
+│   │   └── my.cnf
+│   ├── data
+│   └── log
+├── orchestrator
+│   └── conf
+│       └── orchestrator.conf.json
+├── proxysql
+│   ├── conf
+│   │   └── proxysql.cnf
+│   └── data
+├── sql
+│   ├── rm_data.sh
+│   ├── test_insert.sh
+└── └── test_select.sh

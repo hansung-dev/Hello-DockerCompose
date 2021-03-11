@@ -13,6 +13,17 @@ mysql/mysql-orchestrator/mysql-01/log
 mysql/mysql-orchestrator/mysql-02/log
 mysql/mysql-orchestrator/mysql-03/log
 
+## mysql-orchestrator-proxysql
+mysql/mysql-orchestrator-proxysql/proxysql/data
+
+mysql/mysql-orchestrator-proxysql/mysql-01/data
+mysql/mysql-orchestrator-proxysql/mysql-02/data
+mysql/mysql-orchestrator-proxysql/mysql-03/data
+
+mysql/mysql-orchestrator-proxysql/mysql-01/log
+mysql/mysql-orchestrator-proxysql/mysql-02/log
+mysql/mysql-orchestrator-proxysql/mysql-03/log
+
 ## elastic-stack
 elastic-stack/elastic-stack-6.7.1/elasticsearch/data
 elastic-stack/elastic-stack-6.7.1/mysql-01/data
